@@ -5,7 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider, extendTheme } from "@chakra-ui/react"
 
 const router = createBrowserRouter([
   {
@@ -14,11 +14,18 @@ const router = createBrowserRouter([
   },
 ]);
 
+const theme = extendTheme({
+  fonts: {
+    heading: `"Open Sans", sans-serif`,
+    body: `"Raleway", sans-serif'`,
+  },
+})
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router}>
-    <ChakraProvider>
+    <RouterProvider router={router} >
+    <ChakraProvider theme={theme}>
       </ChakraProvider>
     </RouterProvider>
   </React.StrictMode>

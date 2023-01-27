@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react'
 import {Routes, Route} from 'react-router-dom'
 import ErrorPage from './Views/ErrorPage'
 import './App.css'
+import Layout from './Layout/Layout'
 
 function App() {
   const [data, setData] = useState("");
@@ -20,8 +21,8 @@ function App() {
 
   return (
     <Routes>
-    <Route path="/" element={<Home />}>
-      <Route index element={<Home />} />
+       <Route element={<Layout />}>
+        <Route index element={<Home />} />
       {/* Using path="*"" means "match anything", so this route
             acts like a catch-all for URLs that we don't have explicit
             routes for. */}
