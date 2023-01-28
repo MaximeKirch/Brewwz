@@ -4,21 +4,18 @@ import {Routes, Route} from 'react-router-dom'
 import ErrorPage from './Views/ErrorPage'
 import './App.css'
 import Layout from './Layout/Layout'
+import { fetchBeers } from "./Redux/Reducers/beersReducer";
+import { useDispatch } from "react-redux";
+
 
 function App() {
-  const [data, setData] = useState("");
-  const getData = async () => {
-    const resp = await fetch('https://api.sampleapis.com/beers/ale');
-    const json = await resp.json();
-    setData(json);
-  }
+
+  const dispatch = useDispatch();
+
 
   useEffect(() => {
-    getData();
+    dispatch(fetchBeers());
   }, []);
-
-  data && console.log(data)
-
   return (
     <Routes>
        <Route element={<Layout />}>

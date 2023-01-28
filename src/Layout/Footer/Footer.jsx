@@ -45,6 +45,11 @@ export default function SmallWithSocial() {
     <Box
       bg='#000'
       color='#fff'
+      position='fixed'
+      bottom='0'
+      width='100%'
+      maxH={['100px', '200px', '200px']}
+      display='flex'
       >
       <Container
         as={Stack}
@@ -53,8 +58,18 @@ export default function SmallWithSocial() {
         direction={{ base: 'column', md: 'row' }}
         spacing={4}
         justify={{ base: 'center', md: 'space-between' }}
-        align={{ base: 'center', md: 'center' }}>
-        <Text textAlign='center' >©{date}. Made with ❤️ by Maxime K. </Text>
+        align={{ base: 'center', md: 'center' }}
+        display='flex'
+        flexDir={{base:'column', md:'row'}}
+        >
+
+        <Box
+          display={{base:'none', md:'none', sm:'block'}}
+        >
+          <Text textAlign='center' >©{date} Made with ❤️ by Maxime K </Text>
+        </Box>
+
+      <Box>
         <Stack direction={'row'} spacing={6}>
           <SocialButton label={'Twitter'} color='#fff' href={'https://twitter.com/KirchMaxime'}>
             <FaTwitter />
@@ -69,6 +84,7 @@ export default function SmallWithSocial() {
             <FaLinkedin />
           </SocialButton>
         </Stack>
+        </Box>
       </Container>
     </Box>
   );
