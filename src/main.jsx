@@ -6,7 +6,6 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { store } from "./Redux/Store/store";
 import { Provider } from "react-redux";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,8 +19,6 @@ const theme = extendTheme({
     body: `"Raleway", sans-serif'`,
   },
 });
-
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

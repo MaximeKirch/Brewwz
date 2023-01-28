@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Box, Text, Link } from "@chakra-ui/react";
+import { Container } from "@chakra-ui/react";
 
 export default function Home() {
   return (
@@ -10,8 +10,6 @@ export default function Home() {
       justifyItems="center"
       alignContent="center"
       background="#F2F2F2"
-    >
-
-    </Container>
+    ></Container>
   );
 }
