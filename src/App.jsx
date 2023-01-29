@@ -1,11 +1,9 @@
-import Home from "./Views/Home";
+import Home from "./Views/Products";
 import React, { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import ErrorPage from "./Views/ErrorPage";
 import "./App.css";
-import Layout from "./Layout/Layout";
 import { fetchBeers } from "./Redux/Reducers/beersReducer";
 import { useDispatch } from "react-redux";
+import { Box,Text } from "@chakra-ui/react";
 
 function App() {
   const dispatch = useDispatch();
@@ -13,16 +11,11 @@ function App() {
   useEffect(() => {
     dispatch(fetchBeers());
   }, []);
+
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<Home />} />
-        {/* Using path="*"" means "match anything", so this route
-            acts like a catch-all for URLs that we don't have explicit
-            routes for. */}
-        <Route path="*" element={<ErrorPage />} />
-      </Route>
-    </Routes>
+    <Box>
+      <Text>Hello</Text>
+    </Box>
   );
 }
 

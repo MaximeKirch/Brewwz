@@ -18,9 +18,8 @@ const SocialButton = ({
     <chakra.button
       bg='whiteAlpha.100'
       rounded={'full'}
-      w={16}
-      h={16}
-      pl={5}
+      w={24}
+      h={24}
       cursor={'pointer'}
       as={'a'}
       href={href}
@@ -45,32 +44,33 @@ export default function SmallWithSocial() {
     <Box
       bg='#000'
       color='#fff'
-      position='fixed'
+      position="absolute"
       bottom='0'
       width='100%'
-      maxH={['100px', '200px', '200px']}
+      height='50px'
       display='flex'
+      justifyContent='center'
       >
       <Container
         as={Stack}
         maxW={'6xl'}
         py={4}
-        direction={{ base: 'column', md: 'row' }}
+        direction={'column'}
         spacing={4}
-        justify={{ base: 'center', md: 'space-between' }}
+        justify={'center'}
         align={{ base: 'center', md: 'center' }}
         display='flex'
         flexDir={{base:'column', md:'row'}}
         >
 
         <Box
-          display={{base:'none', md:'none', sm:'block'}}
+          display={['none', 'none', 'block']}
         >
-          <Text textAlign='center' >©{date} Made with ❤️ by Maxime K </Text>
+          <Text>©{date} Maxime K</Text>
         </Box>
 
       <Box>
-        <Stack direction={'row'} spacing={6}>
+        <Stack direction={'row'}>
           <SocialButton label={'Twitter'} color='#fff' href={'https://twitter.com/KirchMaxime'}>
             <FaTwitter />
           </SocialButton>
