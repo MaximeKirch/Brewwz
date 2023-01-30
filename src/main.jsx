@@ -1,8 +1,8 @@
-import React from "react";
+import React  from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ChakraProvider, extendTheme, Spinner } from "@chakra-ui/react";
+import { ChakraProvider } from "@chakra-ui/react";
 import { store } from "./Redux/Store/store";
 import { Provider } from "react-redux";
 import Contact from "./Views/Contact";
@@ -61,7 +61,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
 ]);
-
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

@@ -13,7 +13,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchBeers());
   }, []);
-
+  
   return (
     <Box
       width="100vw"

@@ -7,8 +7,6 @@ export default function HomeProduct() {
   const beers = useSelector((state) => state.products.beers);
   const loading = useSelector((state) => state.products.loading);
 
-  console.log(beers, loading);
-
   return loading === "pending" ? (
     <Box>
       <Spinner />
