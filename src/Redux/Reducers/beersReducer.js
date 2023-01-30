@@ -1,22 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-
-const initialState = {
-  beers: [],
-};
-
-export const apiSlice = createApi({
-  reducerPath: "api",
-  baseQuery: fetchBaseQuery({
-    baseUrl: "https://api.sampleapis.com/beers/ale",
-  }),
-  tagTypes: ["Beers"],
-  endpoints: (builder) => ({
-    getBeers: builder.query({
-      query: () => "beers",
-    }),
-  }),
-});
 
 export const beersSlice = createSlice({
   name: "beers",
