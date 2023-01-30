@@ -1,34 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import React, { useEffect } from "react";
+import "./App.css";
+import { fetchBeers } from "./Redux/Reducers/beersReducer";
+import { useDispatch } from "react-redux";
+import { Box, Text, Grid, GridItem, Button, Flex, Link } from "@chakra-ui/react";
+import { Link as ReachLink } from "react-router-dom";
+import HomeProduct from "./Components/HomeProduct";
+import MarbleBackground from "./assets/marble.jpg";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchBeers());
+  }, []);
+  
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+    <Box
+      width="100vw"
+      height="100vh"
+      backgroundImage={MarbleBackground}
+      backgroundSize="cover"
+    >
+      <Grid templateColumns="1fr 3fr 1fr" gap={6}>
+        <GridItem
+          w="100%"
+          display={{ base: "none", lg: "none", full: "block" }}
+        >
+          <Text>Lateral text left</Text>
+        </GridItem>
+        <GridItem w="100%">
+          <Flex height="80vh" w="100%" justifyContent="center" pt={10}>
+            <HomeProduct />
+          </Flex>
+        </GridItem>
+        <GridItem w="100%">
+          <Flex pt={10} justifyContent="center" alignItems="center" h="80vh">
+            <Link to="/products" as={ReachLink}>
+              {" "}
+              <Button p={20} background="#F2f2f2" border="3px solid #e3c3e3">
+                See our products {">"}{" "}
+              </Button>
+            </Link>
+          </Flex>
+        </GridItem>
+      </Grid>
+    </Box>
+  );
 }
 
-export default App
+export default App;
