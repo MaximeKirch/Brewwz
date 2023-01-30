@@ -37,7 +37,7 @@ function App() {
           <Flex pt={10} justifyContent="center" alignItems="center" h="80vh">
             <Link to="/products" as={ReachLink}>
               {" "}
-              <Button p={20} background="#F2f2f2" border="3px solid #e3c3e3">
+              <Button p={20} background="#F2f2f2" border="3px solid #e3d3c3">
                 See our products {">"}{" "}
               </Button>
             </Link>

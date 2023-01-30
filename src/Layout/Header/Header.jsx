@@ -23,7 +23,6 @@ export default function Header() {
           <Link
             as={ReachLink}
             to="/"
-            textDecoration="none"
             pt={10}
           >
             <Box display="flex" flexDir="row">
@@ -44,21 +43,18 @@ export default function Header() {
           <Link
             as={ReachLink}
             to="/products"
-            textDecoration="none"
           >
             <Text>Products</Text>
           </Link>
           <Link 
             as={ReachLink} 
             to="/about" 
-            textDecoration="none" 
         >
             <Text>About</Text>
           </Link>
           <Link
             as={ReachLink}
             to="/contact"
-            textDecoration="none"
           >
             <Text>Contact</Text>
           </Link>
