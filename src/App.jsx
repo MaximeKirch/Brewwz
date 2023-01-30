@@ -38,7 +38,7 @@ function App() {
             <Link to="/products" as={ReachLink}>
               {" "}
               <Button p={20} background="#F2f2f2" border="3px solid #e3c3e3">
-                See our products >{" "}
+                See our products {">"}{" "}
               </Button>
             </Link>
           </Flex>
