@@ -44,11 +44,11 @@ export default function SmallWithSocial() {
     <Box
       bg='#000'
       color='#fff'
-      position="absolute"
+      position="bottom"
       bottom='0'
       width='100%'
       height='50px'
-      display='flex'
+      display='none'
       justifyContent='center'
       >
       <Container

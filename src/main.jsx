@@ -12,6 +12,8 @@ import ErrorPage from "./Views/ErrorPage";
 import Layout from "./Layout/Layout";
 import Products from "./Views/Products";
 
+import theme from "./Lib/Theme";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -30,17 +32,15 @@ const router = createBrowserRouter([
       </Layout>
     ),
     errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "products/detail/:id",
-        element: (
-          <Layout>
-            <ProductCard />
-          </Layout>
-        ),
-        errorElement: <ErrorPage />,
-        },
-      ],
+  },
+  {
+    path: "detail/:id",
+    element: (
+      <Layout>
+        <ProductCard />
+      </Layout>
+    ),
+    errorElement: <ErrorPage />,
   },
   {
     path: "contact",
@@ -62,18 +62,13 @@ const router = createBrowserRouter([
   },
 ]);
 
-const theme = extendTheme({
-  fonts: {
-    heading: `"Open Sans", sans-serif`,
-    body: `"Raleway", sans-serif'`,
-  },
-});
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <RouterProvider router={router}>
-        <ChakraProvider theme={theme}></ChakraProvider>
+        <ChakraProvider theme={theme}>
+        </ChakraProvider>
       </RouterProvider>
     </Provider>
   </React.StrictMode>

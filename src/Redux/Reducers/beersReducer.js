@@ -45,7 +45,7 @@ export const { beersLoading, beersSuccess } = beersSlice.actions;
 export const fetchBeers = () => async (dispatch) => {
   try {
     dispatch(beersLoading());
-    const response = await fetch("https://api.sampleapis.com/beers/ale");
+    const response = await fetch("https://api.punkapi.com/v2/beers");
     const data = await response.json();
     dispatch(beersSuccess(data));
   } catch (error) {

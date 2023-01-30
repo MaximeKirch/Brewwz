@@ -12,22 +12,22 @@ export default function Header() {
         px={5}
         background="#000"
         minHeight="50px"
+        boxShadow="lg"
       >
         <Box
           display="flex"
           flexDirection="row"
-          w="40%"
+          w="60%"
           justifyContent="space-between"
         >
           <Link
             as={ReachLink}
             to="/"
             textDecoration="none"
-            color="white"
             pt={10}
           >
             <Box display="flex" flexDir="row">
-              <Text fontSize={24} px={10}>
+              <Text fontSize={24} px={10} color='#E3D3C3'>
                 Brewwz
               </Text>
             </Box>
@@ -37,7 +37,7 @@ export default function Header() {
         <Box
           display="flex"
           flexDirection={"row"}
-          w="60%"
+          w="40%"
           justifyContent="space-around"
           pt={15}
         >
@@ -45,7 +45,6 @@ export default function Header() {
             as={ReachLink}
             to="/products"
             textDecoration="none"
-            color="white"
           >
             <Text>Products</Text>
           </Link>
@@ -53,7 +52,6 @@ export default function Header() {
             as={ReachLink} 
             to="/about" 
             textDecoration="none" 
-            color="white"
         >
             <Text>About</Text>
           </Link>
@@ -61,7 +59,6 @@ export default function Header() {
             as={ReachLink}
             to="/contact"
             textDecoration="none"
-            color="white"
           >
             <Text>Contact</Text>
           </Link>

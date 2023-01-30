@@ -4,7 +4,7 @@ import beersReducer, { apiSlice } from "../Reducers/beersReducer";
 
 export const store = configureStore({
   reducer: {
-    beers: beersReducer,
+    products: beersReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(apiSlice.middleware),
