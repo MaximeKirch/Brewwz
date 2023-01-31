@@ -7,12 +7,15 @@ import { store } from "./Redux/Store/store";
 import { Provider } from "react-redux";
 import Contact from "./Views/Contact";
 import About from "./Views/About";
-import ProductCard from "./Views/ProductCard";
+import ProductDetail from "./Views/ProductDetail";
 import ErrorPage from "./Views/ErrorPage";
 import Layout from "./Layout/Layout";
-import Products from "./Views/Products";
+import ProductsList from "./Views/ProductsList";
 
 import theme from "./Lib/Theme";
+import { fetchBeers } from "./Redux/Reducers/beersReducer";
+
+store.dispatch(fetchBeers())
 
 const router = createBrowserRouter([
   {
@@ -28,7 +31,7 @@ const router = createBrowserRouter([
     path: "products",
     element: (
       <Layout>
-        <Products />
+        <ProductsList />
       </Layout>
     ),
     errorElement: <ErrorPage />,
@@ -37,7 +40,7 @@ const router = createBrowserRouter([
     path: "detail/:id",
     element: (
       <Layout>
-        <ProductCard />
+        <ProductDetail />
       </Layout>
     ),
     errorElement: <ErrorPage />,

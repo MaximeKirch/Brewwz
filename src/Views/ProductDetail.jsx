@@ -13,7 +13,7 @@ import {
 import { fetchBeers } from "../Redux/Reducers/beersReducer";
 import { addToCart } from "../Redux/Reducers/cartReducer";
 
-export default function ProductCard() {
+export default function ProductDetail() {
   const beers = useSelector((state) => state.products.beers);
   const { id } = useParams();
 
@@ -77,6 +77,6 @@ export default function ProductCard() {
       </Box>
     </Container>
   ) : (
-    dispatch(fetchBeers())
+    <Text>Product not found</Text>
   );
 }
