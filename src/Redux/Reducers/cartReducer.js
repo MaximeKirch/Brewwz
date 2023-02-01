@@ -5,8 +5,13 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState: {
     cart: [],
+    isClosed : true
   },
   reducers: {
+    toggleCart : (state, action) => {
+      state.isClosed = !state.isClosed
+      console.log('state', state.isClosed)
+    },
     addToCart: (state, action) => {
       const itemInCart = state.cart.find((item) => item.id === action.payload.id);
       if (itemInCart) {
@@ -40,4 +45,5 @@ export const {
   incrementQuantity,
   decrementQuantity,
   removeItem,
+  toggleCart
 } = cartSlice.actions;
