@@ -5,12 +5,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleCart } from "../Redux/Reducers/cartReducer";
 
 import {AiOutlineClose} from 'react-icons/ai'
+import CartLine from "../Components/CartLine";
 
 export default function CartModal() {
   const cartLength = useSelector((state) => state.cart.cart.length);
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.cart);
 
   console.log(cartLength)
+  console.log(cart)
 
   const changeToggle = () => {
     dispatch(toggleCart());
@@ -30,7 +33,7 @@ export default function CartModal() {
       borderRadius={25}
       border="1px solid #000"
     >
-      <Box display="flex" flexDir="row">
+      <Box display="flex" flexDir="row" position='absolute' top={0} left={2}>
         <Icon name="close" />
         <Text>Cart</Text>
         <Box position="absolute" top="10" right="20" onClick={changeToggle}>
@@ -42,7 +45,10 @@ export default function CartModal() {
         cartLength >= 1 ? 
         (
             <Box backgroundColor='red' display='flex' justifySelf='center' alignSelf='center'>
-                <Text>Cart length is {cartLength}</Text>
+              { cart.map((item, index) => {
+                <CartLine key={index} name={item.name} price={item.price} image={item.image_url} quantity={item.quantity} />
+              }
+              )}
             </Box>
         ) : (
             <Box>

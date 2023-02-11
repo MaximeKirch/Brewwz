@@ -11,10 +11,6 @@ import { motion } from "framer-motion";
 function App() {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchBeers());
-  }, []);
-
   return (
     <Box
       width="100vw"

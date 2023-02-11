@@ -8,10 +8,11 @@ import {
   Image,
   Text,
   useMediaQuery,
-  Button
 } from "@chakra-ui/react";
 import { fetchBeers } from "../Redux/Reducers/beersReducer";
 import { addToCart } from "../Redux/Reducers/cartReducer";
+import MarbleBackground from "../assets/marble.jpg";
+import CustomButton from "../Components/CustomButton";
 
 export default function ProductDetail() {
   const beers = useSelector((state) => state.products.beers);
@@ -23,20 +24,20 @@ export default function ProductDetail() {
   const price = 5;
   const name = beer?.name;
   const image_url = beer?.image_url;
-    
-
-  const dispatch = useDispatch();
 
   return beer !== undefined ? (
     <Container
       display="flex"
       w="100%"
-      h="auto"
+      minH="80vh"
+      height="auto"
       maxH="auto"
       pt={50}
       shadow="md"
       justifyContent="center"
       alignItems={isLargerThan768 ? "none" : "center"}
+      backgroundImage={MarbleBackground}
+      backgroundSize="cover"
     >
       <Flex
         direction={isLargerThan768 ? "row" : "column"}
@@ -59,7 +60,7 @@ export default function ProductDetail() {
         </Box>
         <Box
           pt={20}
-          px={5}
+          px={10}
           display="flex"
           flexDirection="column"
           justifyContent={isLargerThan768 ? "start" : "center"}
@@ -70,13 +71,16 @@ export default function ProductDetail() {
           <Text pt={5} textAlign={isLargerThan768 ? "null" : "center"}>
             {beer.tagline}
           </Text>
+          <Text py={5} mb={10} textAlign={isLargerThan768 ? "null" : "center"} maxW='50%'>
+            {beer.description}
+          </Text>
+          <Box width="90px">
+            <CustomButton name={name} price={price} image_url={image_url}/>
+          </Box>
         </Box>
       </Flex>
-      <Box>
-        <Button onClick={() => dispatch(addToCart({id,name, image_url, price}))}>Add to card</Button>
-      </Box>
     </Container>
   ) : (
-    <Text>Product not found</Text>
+    <Text>Product not found :( </Text>
   );
 }
